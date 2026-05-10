@@ -3,7 +3,7 @@ from telegram_notifier import TelegramNotifier
 
 def main():
     TOKEN = os.environ.get("TOKEN")
-    CHAT_ID = os.environ.get(6468207840)
+    CHAT_ID = os.environ.get("CHAT_ID")
 
     if not TOKEN or not CHAT_ID:
         print("Missing TOKEN or CHAT_ID")

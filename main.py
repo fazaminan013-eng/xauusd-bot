@@ -1,9 +1,18 @@
+import os
 from telegram_notifier import TelegramNotifier
 
-TOKEN = 8611614774:AAH_FSxpmgc4_5NwMwj5Gj16rNp1DkfCSyQ
+def main():
+    TOKEN = os.environ.get("TOKEN")
+    CHAT_ID = os.environ.get("CHAT_ID")
 
-CHAT_ID = 6468207840
+    if not TOKEN or not CHAT_ID:
+        print("Missing TOKEN or CHAT_ID")
+        return
 
-bot = TelegramNotifier(TOKEN, CHAT_ID)
+    bot = TelegramNotifier(TOKEN, CHAT_ID)
+    bot.send_message("🚀 Bot XAU IFVG sudah aktif di Railway!")
 
-bot.send_message("Bot XAU IFVG aktif di Railway")
+    print("BOT RUNNING")
+
+if __name__ == "__main__":
+    main()

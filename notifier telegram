@@ -6,14 +6,7 @@ class TelegramNotifier:
         self.chat_id = chat_id
 
     def send_message(self, message):
-        payload = {
+        requests.post(self.url, data={
             "chat_id": self.chat_id,
-            "text": message,
-            "parse_mode": "HTML"
-        }
-
-        try:
-            response = requests.post(self.url, data=payload)
-            print("Telegram response:", response.text)
-        except Exception as e:
-            print("Error:", e)
+            "text": message
+        })
